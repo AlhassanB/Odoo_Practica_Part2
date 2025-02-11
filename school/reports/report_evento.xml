@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+        <record id="report_evento_action" model="ir.actions.report">
+            <field name="name">Reporte de Eventos</field>
+            <field name="model">gestion.colegio.evento</field>
+            <field name="report_name">colegio.report_evento_template</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="binding_model_id" ref="model_gestion_colegio_evento"></field>
+            <field name="binding_type">report</field>
+        </record>
+
+        <template id="report_evento_template">
+            <t t-name="colegio.report_evento_template">
+                <main>
+                    <t t-foreach="docs" t-as="evento">
+                        <div class="page">
+                            <h2>Evento Report</h2>
+                            <p>
+                                <strong>Tipo Evento:</strong>
+                                <t t-if="evento.tipo_evento == 'ausencia'">Ausencia</t>
+                                <t t-elif="evento.tipo_evento == 'retraso'">Retraso</t>
+                                <t t-elif="evento.tipo_evento == 'felicitacion'">Felicitación</t>
+                                <t t-elif="evento.tipo_evento == 'comportamiento'">Comportamiento</t>
+                            </p>
+                            <p>
+                                <strong>Fecha:</strong>
+                                <t t-esc="evento.fecha" />
+                            </p>
+                            <p>
+                                <strong>Descripción:</strong>
+                                <t t-esc="evento.descripcion" />
+                            </p>
+                            <p>
+                                <strong>Alumnos:</strong>
+                            </p>
+                            <ul>
+                                <t t-if="evento.alumno_id">
+                                    <li>
+                                        <t t-esc="evento.alumno_id.name" /> (<t
+                                            t-esc="evento.alumno_id.dni" />) </li>
+
+                                </t>
+                            </ul>
+                        </div>
+                    </t>
+                </main>
+            </t>
+        </template>
+    </data>
+</odoo>

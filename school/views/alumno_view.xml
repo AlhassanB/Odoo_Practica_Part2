@@ -1,0 +1,104 @@
+<odoo>
+    <data>
+        <!-- Vista árbol para los alumnos -->
+        <record id="view_alumno_tree" model="ir.ui.view">
+            <field name="name">alumno.tree</field>
+            <field name="model">gestion.colegio.alumno</field>
+            <field name="arch" type="xml">
+                <header>
+                    <button name="%(action_gestion_colegio_wizard)d"
+                        string="Activar Alumno(s)"
+                        type="action"
+                        class="btn-primary" />
+                </header>
+                <tree>
+                    <field name="name" />
+                    <field name="activo" />
+                    <field name="apellidos" />
+                    <field name="dni" />
+                    <field name="edad" />
+                    <field name="clase_id" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista formulario para los alumnos -->
+        <record id="view_alumno_form" model="ir.ui.view">
+            <field name="name">alumno.form</field>
+            <field name="model">gestion.colegio.alumno</field>
+            <field name="arch" type="xml">
+                <form>
+
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="activo" />
+                            <field name="apellidos" />
+                            <field name="dni" />
+                            <field name="fecha_nacimiento" />
+                            <field name="edad" />
+                        </group>
+                        <group>
+                            <field name="clase_id" />
+                        </group>
+                        <notebook>
+                            <page string="Eventos Relacionados">
+                                <field name="evento_ids">
+                                    <tree>
+                                        <field name="name" />
+                                        <field name="tipo_evento" />
+                                        <field name="fecha" />
+                                        <field name="profesor_id" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción de ventana para los alumnos -->
+        <record id="action_alumno_tree" model="ir.actions.act_window">
+            <field name="name">Alumnos</field>
+            <field name="res_model">gestion.colegio.alumno</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+
+        <!-- <record id="view_wizard" model="ir.ui.view">
+            <field name="name">wizard.form</field>
+            <field name="model">gestion.colegio.wizard</field>
+            <field name="arch" type="xml">
+                <form string="Activar Alumnos">
+                    <field name="alumno_ids" widget="many2many_tags" />
+                    <footer>
+                        <button name="activate_students" type="object" string="Activar"
+                            class="btn-primary" />
+                        <button string="Cancelar" class="btn-secondary" special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_wizard" model="ir.actions.act_window">
+            <field name="name">Activar Alumnos</field>
+            <field name="res_model">gestion.colegio.wizard</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <record id="button_activate_students" model="ir.ui.view">
+            <field name="name">alumno.form.view</field>
+            <field name="model">gestion.colegio.alumno</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="%(action_wizard)d" string="Activar Alumnos" type="action" />
+
+                    </header>
+                </form>
+            </field>
+        </record> -->
+    </data>
+</odoo>

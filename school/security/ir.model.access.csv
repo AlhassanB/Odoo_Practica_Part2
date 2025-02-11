@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_school_school,school.school,model_school_school,base.group_user,1,1,1,1
+access_manager,Manager,model_gestion_colegio_evento,group_manager,1,1,1,1
+access_profesor,Profesor,model_gestion_colegio_evento,group_profesor,1,1,0,0

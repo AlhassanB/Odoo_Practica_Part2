@@ -1,0 +1,60 @@
+<odoo>
+    <!-- Vista árbol para las clases -->
+    <data>
+        <record id="view_clase_tree" model="ir.ui.view">
+            <field name="name">clase.tree</field>
+            <field name="model">gestion.colegio.clase</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="activo" />
+                    <field name="nivel" />
+                    <field name="fecha_inicio" />
+                    <field name="fecha_final" />
+                    <field name="tutor_id" />
+                    <field name="numero_alumnos" />
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista formulario para las clases -->
+        <record id="view_clase_form" model="ir.ui.view">
+            <field name="name">clase.form</field>
+            <field name="model">gestion.colegio.clase</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="activo" />
+                            <field name="nivel" />
+                        </group>
+                        <group>
+                            <field name="fecha_inicio" />
+                            <field name="fecha_final" />
+                            <field name="tutor_id" />
+                        </group>
+                        <notebook>
+                            <page string="Listado de Alumnos">
+                                <field name="alumno_ids">
+                                    <tree>
+                                        <field name="name" />
+                                        <field name="apellidos" />
+                                        <field name="edad" />
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acción de ventana para las clases -->
+        <record id="action_clase_tree" model="ir.actions.act_window">
+            <field name="name">Clases</field>
+            <field name="res_model">gestion.colegio.clase</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

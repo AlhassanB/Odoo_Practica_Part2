@@ -1,0 +1,35 @@
+<odoo>
+
+    <record id="gestion_colegio_wizard_form" model="ir.ui.view">
+        <field name="name">gestion.colegio.wizard.form</field>
+        <field name="model">gestion.colegio.wizard</field>
+        <field name="arch" type="xml">
+            <form string="activar alumnos">
+                <group>
+                    <field name="alumno_ids">
+                        <tree editable="bottom">
+                            <field name="name" />
+                            <field name="activo" />
+
+                        </tree>
+                    </field>
+                </group>
+                <footer>
+                    <button string="Registrar" type="object" name="activate_students"
+                        class="btn-primary" />
+                    <button string="Cancelar" class="btn-secondary"
+                        special="cancel" />
+                </footer>
+            </form>
+        </field>
+    </record>
+    <record id="action_gestion_colegio_wizard" model="ir.actions.act_window">
+        <field name="name">activar alumnos</field>
+        <field name="res_model">gestion.colegio.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <!-- <field name="binding_model_id" ref="model_libreria_libro" /> -->
+    </record>
+
+
+</odoo>

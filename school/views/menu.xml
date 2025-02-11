@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <menuitem id="menu_gestion_colegio" name="Gestión de Colegio" />
+        <menuitem id="menu_eventos" name="Eventos" parent="menu_gestion_colegio"
+            action="action_evento_tree" />
+        <menuitem id="menu_configuracion" name="Configuración" parent="menu_gestion_colegio" />
+        <menuitem id="menu_alumnos" name="Alumnos" parent="menu_configuracion"
+            action="action_alumno_tree" />
+        <menuitem id="menu_clases" name="Clases" parent="menu_configuracion"
+            action="action_clase_tree" />
+    </data>
+</odoo>
